@@ -6,10 +6,20 @@
 	By default, you only see the hologram when you are within 10m of it, to change that, edit the 10.0 infront of the "then"
 	The Default holograms are at the Observatory.
 	
-	If you want to add a line to the hologram, just make a new Draw3DText line with the same coordinates, and edit the vertical offset
+	If you want to add a line to the hologram, just make a new Draw3DText line with the same coordinates, and edit the vertical offset.
 	
 	Formatting:
 			Draw3DText( x, y, z  vertical offset, "text", font, text size, text size)
+			
+			
+	To add a new hologram, copy paste this example under the existing ones, and put coordinates and text into it.
+	
+		if GetDistanceBetweenCoords( X, Y, Z, GetEntityCoords(GetPlayerPed(-1))) < 10.0 then
+			Draw3DText( X, Y, Z,  -1.400, "TEXT", 4, 0.1, 0.1)
+			Draw3DText( X, Y, Z,  -1.600, "TEXT", 4, 0.1, 0.1)
+			Draw3DText( X, Y, Z,  -1.800, "TEXT", 4, 0.1, 0.1)		
+		end
+
 
 ]]--
 
