@@ -28,20 +28,13 @@ Citizen.CreateThread(function()
 end)
 
 function Holograms()
-		while true do
-			Citizen.Wait(0)			
-				-- Hologram No. 1
-		if GetDistanceBetweenCoords( -408.50, 1163.00, 326.00, GetEntityCoords(GetPlayerPed(-1))) < 10.0 then
-			Draw3DText( -408.50, 1163.00, 326.00  -1.400, "Your text", 4, 0.1, 0.1)
-			Draw3DText( -408.50, 1163.00, 326.00  -1.600, "goes", 4, 0.1, 0.1)
-			Draw3DText( -408.50, 1163.00, 326.00  -1.800, "here", 4, 0.1, 0.1)		
-		end		
-				--Hologram No. 2
-		if GetDistanceBetweenCoords( -419.50, 1166.00, 326.00, GetEntityCoords(GetPlayerPed(-1))) < 10.0 then
-			Draw3DText( -419.50, 1166.00, 326.00  -1.400, "Discord: discord.me/HailTheSnail", 4, 0.1, 0.1)
-			Draw3DText( -419.50, 1166.00, 326.00  -1.600, "Website: www.BadExample.com", 4, 0.1, 0.1)
-			Draw3DText( -419.50, 1166.00, 326.00  -1.800, "Twitter: @Example", 4, 0.1, 0.1)		
-		end	
+	while true do
+		Citizen.Wait(0)			
+		for i=1, #Config.List, 1 do
+			if GetDistanceBetweenCoords( Config.List[i].x, Config.List[i].y, Config.List[i].z, GetEntityCoords(GetPlayerPed(-1))) < Config.Show then
+				Draw3DText( Config.List[i].x, Config.List[i].y, Config.List[i].z,  Config.List[i].data, Config.List[i].FrontId, Config.List[i].ScaleX, Config.List[i].ScaleY, Config.List[i].r, Config.List[i].g, Config.List[i].b, Config.List[i].alpha)	
+			end
+		end
 	end
 end
 
